@@ -1,0 +1,18 @@
+Notes taken from learnvimscriptthehardway.stevelosh.com
+
+:autocmd Event Pattern Command
+Example:
+:autocmd BufNewFile * :write
+
+Event
+  Many different events listed here: TODO - Add url
+Pattern
+  A filter, example is * - all.
+  A filter for txt files would be *.txt
+Command
+  Basically any command you can enter inside of vim .
+
+You can also do multiple events
+:autocmd Event1,Event2 Pattern Command
+Example:
+:autocmd BufWritePre,BufRead *.html :write
