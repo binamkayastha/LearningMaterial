@@ -1,0 +1,119 @@
+Boston Machine Learning Group. Monday, September, 27th
+TensorFlow In Practice. Nathen Lintz nathen@indico.io
+
+ Inputs (Placeholders)
+    import tenserflow as tf
+    temp = tf.placeholder(tf.float32, [10,1])
+    cake_doneness = tf.placeholder(tf.float32, [10,1]) // 10 examples
+
+ Parameters and Operations
+    temp_m = tf.get_variable('temp_m', [1,1])
+    temp_b = tf.get_variable('temp_b', [1,1])
+    predicted_output = tf.nn.xw_plus_b(temp, temp_m, temp_b)
+
+ Cost
+    //linear
+    cost = tf.reduce_mean((cake_doneness - predicted_output)**2)
+    //non-linear
+    cost = tf.reduce_mean(tf.nn.softmax_cost_entropy_with_logits(Y_pred, Y_true)
+
+ Optimization (Iterativly updates parameters according to cost)
+    optimizer = tf.train.GradientDescentOptimizer(learning_rate=0.01). minimize(cost)
+
+ Train (100 iterations, run cost and optimizer)
+    sess  tf.Session()
+    sess.run(tf.initilalize_all_variables())
+    temp_train = np.linspace(0, 10, 10).reshape(-1, 1)
+    doneness_train  temp_observe * 5. + 1. + 
+    np.random.randn(10, 1)
+
+    for _in range(100):
+        sess.run(optimizer, feed_dict={temp: temp_train, cake_doneness: doneness_
+        ....
+
+
+#softmax(mx + b)
+    Will crush full domain of numbers to 0 or 1.
+
+
+#Inputs
+    import tensoflow.
+    //Tensorflow has MINST in it
+    Choose 128 batch size
+        128 digits at on time
+        784 pixels (28x28 sized images)
+    X - tf.placeholder(tf.float32, [128, 784]);
+
+
+Train code
+    sess  tf.Session()
+    sess.run(tf.initilalize_all_variables())
+    for i in range (1, 2000)
+        trX, trY = mnist.train.next_batch(128)
+        sess.run(optimizer, feed_dict={X: trX, Y_true:trY})
+
+#Accurate only to 92%. Use hidden layers!!
+    Apply non-linearity.
+    Relu
+        Linear Recheme (>0 is linear)
+        Non-linear recheme (<=0 is non-linear)
+
+
+97%, 97% (Train, Test). Need another hidden layer!
+
+ReLu Again!
+98%, 97% (Train, Test). Overfitting!
+
+Use Dropout!
+Remove some activiations (Forces network to learn more generalized features)
+    h1 = tf.nn.dropout(h1, p_keep)
+    //p_keep - probability of keeping the activation
+    //p_keep should be 1 (no change) at the last activations?
+
+98%, 98% (Train, Test).
+
+
+#Tips and Tricks
+    Parameter Sharing
+        Make sure you are using the parameters from your test model to your train model
+        scope.reuse_variables()
+    Collections - save values
+        tf.add_to_collection("activations", h1)
+        tf.add_to_collection("activations", h2)
+        //give the activations collection with both h1 and h2.
+        activations = tf.get_collection('activations")
+        activations_values = session.run(activations)
+    Placeholders
+        X = tf.placeholder(tf.float32, [128, 784])
+        // Batch size is set to 128, it will look at 128 images, and won't work if you only set 1.
+        X = tf.placeholder(tf.float32, [None, 784])
+        // Batch size set to None, means it will be set at runtime
+
+
+Advanced Tensorflow: Building RNN
+    "The food at the restaurant, was very good" 
+        Look at words in a sequence.
+    Yt = tanh(mx Xt + mh h t-1 + b)
+    X = tf.placeholder(tf.float32, [28, 128, 28])
+    X_split = ptf.squeeze(x) for x in tf.split(0, 28, X)]
+    rnn  tf.nn.rnn_cell.BasicRNNCell(256, 28)
+    outputs, states = tf.nn.rnn(rnn, X_split, dtype=.....
+
+Scan - special operation in tenserflow
+    elms = [1, 2, 3, 4, 5, 6]
+    def step(a, x):
+        return a + x
+    sum = scan(stem, elems)
+    >>> sum = [1,3,6,10,15,21]
+
+states = tf.scan(step, X, initializer =tf.zeroes(256))
+
+
+Seq2Seq
+Input -> Encoder RNN -> Take Final Stage -> Language Model (RNN) -> Output Digit
+
+
+Debugging
+    TensorBoard - Visualization of the network
+    Use get variable instead of creating new one.
+    Gradient into collection to do gradient introspection
