@@ -1,0 +1,53 @@
+Talk at 9/28/16 by 
+
+Initializes
+    // Initialize x
+    syms x
+    // Initialize x with assumption, real
+    syms x 'real'
+    // Symbolic functoin
+    f = x^2 + y^2  //where x and y are symbolic variables
+    syms x(t)   //Towhich you could later apply dsolve(diff(x)==-a*x)
+    //sym command
+    `syms g` is equal to `g = sym(g)`
+    // You can also do sym(number)
+    sym(0)
+    //Symbolic matrix:
+    A = sym(zeros(3))
+    A = sym('a%d%d', [2 3])
+
+Things you can do with symbolic functions/constants:
+    simplify(f)     // Simplifies from largest root to smallest root
+                        There are also more options on how you want the algorithm to simplify
+    expand(f)       // Expands from smallest root to biggest root
+    sym2poly(f)     // Changes function to polynomical, and returns the co-efficients
+
+Mathematical Expressions
+    dsolve('Dx = -a*x')     // Solves differential equation
+    dsolve('Dx = -a*x', 'x(0) = 2')     // Solves differential equation
+
+Solving two functions:
+    eq(1,1) = x + y
+    eq(2,1) = 2x+ 3y
+    [x,y] = solve(eq,x,y)
+
+Plotting
+    ezplot(sin(t)*cos(t + exp(t))
+    ezsurf()
+    ezcontour()
+
+Assumptions
+    Create assumption:
+        // Create assumption, deletes previous assumptions of x
+        assume(x, 'positive')
+        // To add an assumption to variable
+        assumeAll(x, 'real')
+
+        // To check assumptions
+        assumption
+        // To clear do (makesure you add all):
+        clear all
+
+Creating a function to evaluate a function multiple times with symbolic functions
+    g = matlabFunction(f) // Where f is a symbolic function
+
