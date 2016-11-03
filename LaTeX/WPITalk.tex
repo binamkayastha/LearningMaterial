@@ -1,0 +1,38 @@
+\documentclass{book}
+\usepackage{amsmath}
+\begin{document}
+
+    \chapter{Latex Talk}
+    \section{Basic Stuff}
+    \subsection{SubSection}
+    \noindent Hello World\\Juan!
+    %comments
+    \alpha
+    \subsection{Math}
+    $\alpha\bar$
+
+    \[\sum_{i=1}^{N}x^i\]\\
+%    $\sum\limits_{i=i}^{N}x^i$
+
+    \begin{equation}
+        \left ( \begin{array}{ccc}
+        \begin{matrix}
+            0 & 1 & 2 \\
+            3 & 4 & 5 \\
+            7 & 9 & 10
+        \end{matrix}
+        \end{array} \right )
+    \end{equation}
+
+    \begin{table}[b] % h = here, t = top, b = bottom, p = page of floats, ! = insistent, %H \usepackage{floats}
+        \begin{center}
+            \begin{tabular}{| c | c | c | }
+                \hline
+                T & 1 & 2\\ \hline
+                Time & 0.3 & 0.5\\ \hline
+            \end{tabular}\label{Table: Label!}
+            \caption{This is the best table caption}
+        \end{center}
+    \end{table}
+
+\end{document}
