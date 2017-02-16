@@ -1,0 +1,24 @@
+Scrum class notes, Jan 9th, 2017
+
+To foster scrum team by starting a pilot team.
+Only product owner can change backlog. Product owner has final say.
+
+Any team member can add, delete or change teh sprint backlog.
+You can leave work done. It's more important to reach sprint goal.
+
+Mission - product owner
+Autonomy - Scrum master
+Mastery - Dev Team
+
+lean training - when process is smaller, output is larger
+Context switching is inefficient, so make sure that sprints are small enough so that there isn't 
+
+If something new shows up, then you might need to do an "abnormal termination". Only do that if it's worth removing work from current scrum, and is larger than sprint goal.
+
+Length of sprit -> How fast is the environment chaning, and how fast do we need to go
+
+Anti-Paterns that show up:
+
+Mission
+ - Teaming: Split the team
+ - 

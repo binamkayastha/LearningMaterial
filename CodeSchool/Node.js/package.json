@@ -1,0 +1,9 @@
+{
+  "name": "Name of your app",
+  "version": "1",
+  "dependencies": {
+    "name": "version number",
+  }
+}
+// npm install will install the modules needed from looking at the package.js
+// Version: 1.8.7 (1 - Major, 2 - Minor, 7 - Patch. Using ~ will give you a range)

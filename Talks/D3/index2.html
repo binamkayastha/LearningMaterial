@@ -1,0 +1,67 @@
+<html>
+    <head>
+            <title>D3 Demo</title>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.4.1/d3.min.js"></script>
+            <script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    var circles = d3.select('$chart')
+        .selectAll('circle'); // select everything inside chart that is a circle
+
+    cricles.data([100, 200, 250, 370, 700, 850])
+        .enter()
+        .append('circle')
+        .attr('fill', 'red')
+        .attr('cx', function(d) { return d; })
+        .attr('cy', 250)
+        .attr('r', function(d) { return d/10; }); // You can set attributes using d3. Most d3 mehtos
+
+    d3.select('#chart').selectAll('circle')
+        .data([800, 200, 350, 400, 300, 100])
+
+        //d3.csv
+        d3.csv('data.csv', function (data) {
+            //debugger;
+
+            // Scale and the axis. 
+            // The Scale is a mapping, they don't have to be numbers to numbers. No visual representation.
+            // The axis is the actual tickmarks. Uses the scale.
+            var scale = d3.scaleLinear()
+                .domain([0, d3.max(data, function (d) { return +d['Population']; })]) // What we are mapping from
+                .range([0, 900]); // Range in terms of pixels. Scale is also a function itself.
+
+            scale(320); // Will return which country should be on pixel 320.
+
+            var axis = d3.axisTop(scale);// different axis generated depending where you want it to be oriented.
+
+            // Use g to group axis as a whole group.
+            var axisSelection = d3.select('#chart').append('g').attr('transform', 'translate(0 20)');;
+            axis(axisSelection);
+
+
+            d3.select('#chart')
+                .selectAll('circle')
+                .data(data)
+                .enter()
+                .attr('cy', 250)
+                .attr('r', 20)
+                .attr('fill', 'red')
+                .attr('cx', function(d){ return scale(+d['Population']); });
+                .on('mouseover', function () {
+                    d3.select(this).attr('fill', 'blue');
+                });
+        });
+        //python -m http.server
+});
+
+
+            </script>
+    </head>
+
+    <body>
+        <svg id="chart" width="960" height="500">
+        </svg>
+    </body>
+</html>
+
+

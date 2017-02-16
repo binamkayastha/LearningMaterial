@@ -1,0 +1,44 @@
+void setup() {
+    size(1280, 1280, P3D);
+
+    noStroke();
+    smooth(); // antialiases
+}
+
+void draw() {
+    background(128);
+    camera(....); // Specify where the camera is in the beginning
+
+    rotateZ(...); // mouseX is bultin variable
+    rotateX(...);
+
+    pointLight(....); // Theses are the lights, parameters, colors, thenlocations);
+
+    triangles(4, 0, 0, size/2, size);
+}
+
+void triangles(int it, float xpos, float ypos, float zpos, float tri) {
+    // Drawing shapes
+    // Draw Shape. You can define your own polygons
+    beginShape();
+    vertex(...);
+    vertex(...);
+    vertex(...);
+    endShape();
+}
+
+
+
+
+
+// Translating the Grid
+pushMatrix() // So you don't effect the translates.
+translate(x, y); // translate the grid
+
+popMatrix()
+
+
+// Third party library
+// You can implement any library from Java
+// Sketch -> Import Library
+// Gamepad controller

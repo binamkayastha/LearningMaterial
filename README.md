@@ -14,6 +14,8 @@ Currently has:
 - Talks
     - symbolicvariables: Notes on a talk about using symbolic variables in Matlab at WPI
     - TensorFlow:   Notes on a TenserFlow given at the Massachusetts Spotify office
+    - D3.js: Notes on a workshop on D3 given at Hack@WPI 2017
+    - Processing3d: Notes on a workshop on Processing3d given at Hack@WPI 2017
 - Vim
     - Autocommands.txt: Notes on autocommands in vim and how to make them.
 - Python
@@ -22,3 +24,5 @@ Currently has:
         - HelloWorld for Flask
     - Networking
         - Simple Python UDP socket example
+ - CodeShool
+    - Some codeschool notes I took when watching the lecture videos
